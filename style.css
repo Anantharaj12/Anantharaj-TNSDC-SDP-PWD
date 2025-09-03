@@ -1,88 +1,30 @@
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f4f6f8;
-  margin: 0;
-  padding: 0;
-  color: #222;
-}
+// Smooth scroll for navigation links
+document.querySelectorAll('nav ul li a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
 
-header {
-  background: #334155;
-  color: #fff;
-  padding: 32px 0 20px 0;
-}
+// Example: Highlight active section link when scrolling
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section');
+  let scrollPos = window.scrollY + 100;
 
-header .container {
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 16px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-nav ul li a:hover {
-  color: #38bdf8;
-}
-
-.section {
-  background: #fff;
-  margin: 24px auto;
-  max-width: 700px;
-  padding: 32px;
-  border-radius: 10px;
-  box-shadow: 0 3px 14px rgba(0,0,0,0.07);
-}
-
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  padding: 0;
-  list-style: none;
-}
-
-.skills-list li {
-  background: #e2e8f0;
-  color: #334155;
-  padding: 8px 18px;
-  border-radius: 5px;
-  font-size: 15px;
-}
-
-.work-card {
-  background: #e0f2fe;
-  padding: 18px;
-  border-radius: 7px;
-  margin-top: 10px;
-}
-
-footer {
-  text-align: center;
-  background: #334155;
-  color: #fff;
-  padding: 14px 0;
-  margin-top: 32px;
-}
-
-@media (max-width: 600px) {
-  .section {
-    padding: 14px;
-    margin: 10px;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 9px;
-  }
-}
+  sections.forEach(section => {
+    if (
+      scrollPos >= section.offsetTop &&
+      scrollPos < section.offsetTop + section.offsetHeight
+    ) {
+      document.querySelectorAll('nav ul li a').forEach(a => {
+        a.classList.remove('active');
+      });
+      const activeLink = document.querySelector(`nav ul li a[href="#${section.id}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+  });
+});
