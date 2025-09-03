@@ -1,73 +1,88 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f8;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
   color: #222;
 }
 
 header {
-  background: #1a1a1a;
+  background: #334155;
   color: #fff;
-  padding: 20px 0;
+  padding: 32px 0 20px 0;
+}
+
+header .container {
   text-align: center;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
-  margin: 10px 0 0 0;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
-}
-
-nav ul li {
-  margin: 0 15px;
+  gap: 30px;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
-  padding: 5px 10px;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 nav ul li a:hover {
-  background: #222;
-  border-radius: 4px;
+  color: #38bdf8;
 }
 
-section {
+.section {
   background: #fff;
-  margin: 20px auto;
-  max-width: 800px;
-  padding: 30px;
+  margin: 24px auto;
+  max-width: 700px;
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  background: #e2e8f0;
+  color: #334155;
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.work-card {
+  background: #e0f2fe;
+  padding: 18px;
   border-radius: 7px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.06);
+  margin-top: 10px;
 }
 
 footer {
   text-align: center;
-  padding: 10px;
-  background: #1a1a1a;
+  background: #334155;
   color: #fff;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-
-.project {
-  margin-bottom: 20px;
+  padding: 14px 0;
+  margin-top: 32px;
 }
 
 @media (max-width: 600px) {
-  section {
-    padding: 12px;
+  .section {
+    padding: 14px;
     margin: 10px;
   }
   nav ul {
     flex-direction: column;
-  }
-  nav ul li {
-    margin: 8px 0;
+    gap: 9px;
   }
 }
